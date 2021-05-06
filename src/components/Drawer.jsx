@@ -1,22 +1,16 @@
-import React from 'react';
-import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import MoreIcon from '@material-ui/icons/MoreVert';
-
+import React from "react";
+import clsx from "clsx";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Drawer from "@material-ui/core/Drawer";
+import AppBar from "@material-ui/core/AppBar";
+import List from "@material-ui/core/List";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import IconButton from "@material-ui/core/IconButton";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -27,13 +21,13 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import Bage from "./Badge";
-import Profile from "./Profile"
+import Profile from "./Profile";
 
 import InputBase from "@material-ui/core/InputBase";
 
 import "./Drawer.scss";
 
-const drawerWidth = 240;
+const drawerWidth = 260;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -83,13 +77,13 @@ const useStyles = makeStyles((theme) => ({
       width: theme.spacing(9) + 1,
     },
   },
+
   toolbar: {
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-end",
     padding: theme.spacing(0, 1),
-    marginTop:"20px",
-    // necessary for content to be below app bar
+    marginTop: "20px",
     ...theme.mixins.toolbar,
   },
   content: {
@@ -99,7 +93,6 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
-  
 }));
 
 export default function MiniDrawer(props) {
@@ -120,23 +113,8 @@ export default function MiniDrawer(props) {
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
-      >
-        {/* <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawertoggle}
-            edge="start"
-            className={clsx(classes.menuButton, {
-              [classes.hide]: open,
-            })}
-          >
-            <MenuIcon />
-          </IconButton>
-        </Toolbar> */}
+      ></AppBar>
 
-      </AppBar>
-   
       <Drawer
         className="drawer"
         variant="permanent"
@@ -151,16 +129,23 @@ export default function MiniDrawer(props) {
           }),
         }}
       >
-        <div className={classes.toolbar}>
-        <Profile name="Rodrigo" subtitle="Mais um dia" img="1517421713742.jfif"></Profile>
-          <IconButton onClick={handleDrawertoggle}>
-            {/* revisar  botão guando esta fechado */}
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
-          </IconButton>
+        <div className="DrawerHeader">
+          <div
+            className={
+              (open ? "profileOpen" : "profileClose") + " profileWrapper"
+            }
+          >
+            <Profile
+              name="Rodrigo"
+              subtitle="Mais um dia"
+              img="1517421713742.jfif"
+            ></Profile>
+          </div>
+          <div className={classes.toolbar}>
+            <IconButton onClick={handleDrawertoggle}>
+              {!open ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            </IconButton>
+          </div>
         </div>
 
         <List className="Menu">
@@ -186,23 +171,23 @@ export default function MiniDrawer(props) {
             <Bage number="9"></Bage>
           </ListItem>
 
-          <ListItem button disableRipple key="Search">
-            <ListItemIcon>
-              <FontAwesomeIcon icon={faSearch} />
-            </ListItemIcon>
+          {open ? (
+            <ListItem button disableRipple key="Search" className="Search">
+              <ListItemIcon>
+                <FontAwesomeIcon icon={faSearch} />
+              </ListItemIcon>
 
-            <InputBase
-              className={classes.input}
-              placeholder="Search "
-              inputProps={{ "aria-label": "search" }}
-            />
-          </ListItem>
+              <InputBase
+                className={classes.input}
+                placeholder="Search "
+                inputProps={{ "aria-label": "search" }}
+              />
+            </ListItem>
+          ) : null}
         </List>
       </Drawer>
 
-      <main className={classes.content}>
-        {props.children}
-      </main>
+      <main className={classes.content}>{props.children}</main>
     </div>
   );
 }

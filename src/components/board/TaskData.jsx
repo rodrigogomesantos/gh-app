@@ -4,8 +4,8 @@ const cardData = {
       'task-2': { id: 'task-2', content: 'Watch my favorite show', author: 'Victória Maziero', authorImg:'1616197630575.jfif'  },
       'task-3': { id: 'task-3', content: 'Charge my phone', author: 'Victória Maziero', authorImg:'1616197630575.jfif' },
       'task-4': { id: 'task-4', content: 'Cook dinner', author: 'Victória Maziero', authorImg:'1616197630575.jfif' },
-      'task-5': { id: 'task-3', content: 'Charge my phone', author: 'Victória Maziero', authorImg:'1616197630575.jfif' },
-      'task-6': { id: 'task-4', content: 'Cook dinner', author: 'Victória Maziero', authorImg:'1616197630575.jfif' },
+      'task-5': { id: 'task-5', content: 'Charge my phone', author: 'Victória Maziero', authorImg:'1616197630575.jfif' },
+      'task-6': { id: 'task-6', content: 'Cook dinner', author: 'Victória Maziero', authorImg:'1616197630575.jfif' },
     },
     columns: {
       'column-1': {

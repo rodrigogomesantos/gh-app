@@ -2,19 +2,37 @@
     background-color: #e6edee !important;
 }
 
-.makeStyles-content-10{
+.makeStyles-content-10 {
     padding: 10px !important;
 }
 
-.MuiDrawer-paperAnchorDockedLeft{
+.MuiDrawer-paperAnchorDockedLeft {
     border-right: 0px !important;
 }
 
-.Menu {
+.DrawerHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    .profileWrapper {
+        transition: all 0.15s ease-in ;
+        overflow: hidden;
+        margin-top: 1rem;
+    }
+    .profileOpen {
+        width: 15rem;
+    }
 
+    .profileClose {
+        width: 0;
+    }
+
+}
+
+.Menu {
     margin: 0 10px !important;
 
-    .MuiListItemText-root{
+    .MuiListItemText-root {
         flex: unset;
     }
 
@@ -30,10 +48,10 @@
         &:active {
             background-color: #dee6e7;
         }
-        &:last-child{
-            background-color: white;
-            cursor: auto;
-        }
-       
+
+    }
+    .Search {
+        background-color: white;
+        cursor: auto;
     }
 }

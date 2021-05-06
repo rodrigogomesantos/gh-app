@@ -1,26 +1,22 @@
-import './Board.scss'
-import React from 'react';
-import '@atlaskit/css-reset';
-import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import TaskData from './TaskData';
-import Column from './Column.jsx';
-
-
-
+import "./Board.scss";
+import React from "react";
+import "@atlaskit/css-reset";
+import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import TaskData from "./TaskData";
+import Column from "./Column.jsx";
 class InnerList extends React.PureComponent {
   render() {
     const { column, taskMap, index } = this.props;
-    const tasks = column.taskIds.map(taskId => taskMap[taskId]);
+    const tasks = column.taskIds.map((taskId) => taskMap[taskId]);
     return <Column column={column} tasks={tasks} index={index} />;
   }
 }
-
 export default class Board extends React.Component {
   state = TaskData;
 
   onDragStart = (start, provided) => {
     provided.announce(
-      `You have lifted the task in position ${start.source.index + 1}`,
+      `You have lifted the task in position ${start.source.index + 1}`
     );
   };
 
@@ -54,7 +50,7 @@ export default class Board extends React.Component {
       return;
     }
 
-    if (type === 'column') {
+    if (type === "column") {
       const newColumnOrder = Array.from(this.state.columnOrder);
       newColumnOrder.splice(source.index, 1);
       newColumnOrder.splice(destination.index, 0, draggableId);
@@ -130,12 +126,11 @@ export default class Board extends React.Component {
           direction="horizontal"
           type="column"
         >
-          {provided => (
-            <div className="Container"
+          {(provided) => (
+            <div
+              className="Container"
               {...provided.droppableProps}
-            //   ref={provided.innerRef}
               ref={provided.innerRef}
-
             >
               {this.state.columnOrder.map((columnId, index) => {
                 const column = this.state.columns[columnId];
