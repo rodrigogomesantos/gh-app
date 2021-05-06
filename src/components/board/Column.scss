@@ -1,0 +1,26 @@
+h3 {
+    margin: 10px 0;
+}
+
+.Column {
+    width: 400px;
+    background-color: #edf1f2;
+    margin-right: 15px;
+    padding: 15px 15px 15px 15px;
+    border-radius: 6px;
+
+    .MuiButton-containedPrimary {
+        color: #b1bfc5;
+        background-color: #e3e9eb;
+        text-transform: none;
+
+        &:hover {
+            background-color: #d7dddf;
+
+        }
+    }
+}
+
+
+
+.TaskList {}

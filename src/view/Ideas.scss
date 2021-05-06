@@ -1,0 +1,36 @@
+
+.Head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+    p{
+        margin: 0;
+    }
+
+    h1 {
+        font-weight: 400;
+    }
+
+    .RightGroup {
+        display: flex;
+        align-items: center;
+    }
+
+    .BordUsers {
+        margin: 0 20px;
+        display: flex;
+        align-items: center;
+
+        img {
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            margin-right: -8px;
+            border: 2px solid white;
+        }
+
+        
+    }
+}

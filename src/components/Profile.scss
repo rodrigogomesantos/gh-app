@@ -1,0 +1,40 @@
+
+.Profile {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 25px;
+
+    h2 {
+        margin: 0;
+        font-weight:400;
+    }
+
+    h4 {
+        margin: 0;
+        color: #7c7c7c;
+        font-weight:400;
+    }
+
+    img {
+        position: absolute;
+        width: 80%;
+        border-radius: 50%;
+    }
+
+    .Photo {
+        $img-size: 70px;
+
+        position: relative;
+        width: $img-size;
+        height: $img-size;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .Name {
+        margin-left: 10px;
+    }
+}

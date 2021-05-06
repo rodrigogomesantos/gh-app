@@ -1,0 +1,39 @@
+.MuiDrawer-paperAnchorDockedLeft {
+    background-color: #e6edee !important;
+}
+
+.makeStyles-content-10{
+    padding: 10px !important;
+}
+
+.MuiDrawer-paperAnchorDockedLeft{
+    border-right: 0px !important;
+}
+
+.Menu {
+
+    margin: 0 10px !important;
+
+    .MuiListItemText-root{
+        flex: unset;
+    }
+
+    .MuiListItem-button {
+        border-radius: 5px;
+        width: auto;
+        height: 30px;
+
+        &:hover {
+            background-color: #deebec;
+        }
+
+        &:active {
+            background-color: #dee6e7;
+        }
+        &:last-child{
+            background-color: white;
+            cursor: auto;
+        }
+       
+    }
+}

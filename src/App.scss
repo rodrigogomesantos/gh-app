@@ -1,0 +1,25 @@
+$PrimaryTextColor: #8499a2;
+$SecundaryTextColor: #c8d0d4;
+
+.App {
+
+    h1,
+    h2,
+    h3 {
+        color: #879ca5;
+    }
+
+    .makeStyles-content-10 {
+        margin-left: 30px;
+    }
+
+    .Rotate90 {
+        transform: rotate(90deg);
+    }
+    .PrimaryTextColor{
+        color:$PrimaryTextColor;
+    }
+    .SecundaryTextColor{
+        color:$SecundaryTextColor;
+    }
+}
