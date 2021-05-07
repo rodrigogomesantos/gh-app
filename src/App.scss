@@ -16,10 +16,12 @@ $SecundaryTextColor: #c8d0d4;
     .Rotate90 {
         transform: rotate(90deg);
     }
-    .PrimaryTextColor{
-        color:$PrimaryTextColor;
+
+    .PrimaryTextColor {
+        color: $PrimaryTextColor;
     }
-    .SecundaryTextColor{
-        color:$SecundaryTextColor;
+
+    .SecundaryTextColor {
+        color: $SecundaryTextColor;
     }
 }

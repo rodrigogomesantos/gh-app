@@ -1,33 +1,10 @@
 import "./Column.scss";
 import React from "react";
-import styled from "styled-components";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import Task from "./Task";
 import Button from "@material-ui/core/Button";
-
-const Container = styled.div`
-  margin: 8px;
-  border: 1px solid lightgrey;
-  background-color: white;
-  border-radius: 2px;
-  width: 400px;
-  display: flex;
-  flex-direction: column;
-`;
-
-const Title = styled.h3`
-  padding: 8px;
-`;
-
-const TaskList = styled.div`
-  padding: 8px;
-  transition: background-color 0.2s ease;
-  background-color: ${(props) =>
-    props.isDraggingOver ? "lightgrey" : "inherit"};
-  flex-grow: 1;
-  min-height: 100px;
-`;
-
+import MoreIcon from "@material-ui/icons/MoreVert";
+import IconButton from "@material-ui/core/IconButton";
 class InnerList extends React.Component {
   shouldComponentUpdate(nextProps) {
     if (nextProps.tasks === this.props.tasks) {
@@ -48,7 +25,17 @@ export default class Column extends React.Component {
       <Draggable draggableId={this.props.column.id} index={this.props.index}>
         {(provided) => (
           <div {...provided.draggableProps} ref={provided.innerRef}>
-            <h3 {...provided.dragHandleProps}>{this.props.column.title}</h3>
+            <div className="ColumnHead">
+              <h3 {...provided.dragHandleProps}>{this.props.column.title}</h3>
+              <IconButton
+                className="Rotate90 PrimaryTextColor"
+                aria-label="display more actions"
+                edge="end"
+                color="inherit"
+              >
+                <MoreIcon />
+              </IconButton>
+            </div>
             <div className="Column">
               <Droppable droppableId={this.props.column.id} type="task">
                 {(provided, snapshot) => (
@@ -63,7 +50,12 @@ export default class Column extends React.Component {
                   </div>
                 )}
               </Droppable>
-              <Button variant="contained" color="primary" disableElevation fullWidth="true">
+              <Button
+                variant="contained"
+                color="primary"
+                disableElevation
+                fullWidth="true"
+              >
                 + New Card
               </Button>
             </div>

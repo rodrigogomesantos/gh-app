@@ -17,10 +17,11 @@ export default (props) => (
       />
 
       <div style={{ position: "absolute" }}>
-        <CircularProgressbar className="Progrees"
+        <CircularProgressbar
+          className="Progrees"
           value={40}
           textForPercentage={null}
-          strokeWidth={5}	
+          strokeWidth={5}
         />
       </div>
     </div>
